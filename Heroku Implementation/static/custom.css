@@ -1,0 +1,8 @@
+a {
+    color: blue !important;
+    text-decoration: none; /* Optional: removes underline */
+}
+
+a:hover {
+    color: darkblue !important; /* Optional: changes color on hover */
+}
