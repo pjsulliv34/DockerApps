@@ -1,8 +1,83 @@
+/* Ensure the html and body cover the full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply background to the entire page */
+body {
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: #333; /* Darker text for readability */
+}
+
+/* Title and Description Styles */
+#intro {
+    text-align: center;
+    padding: 40px 20px; /* Increased padding for a more spacious look */
+    background-color: rgba(0,0,0,0); /* Slightly transparent background */
+    margin-bottom: 20px; /* Space between intro section and header */
+}
+
+#intro h1 {
+    margin: 0;
+    font-size: 2.5em; /* Larger font size for the title */
+}
+
+#intro p {
+    margin: 10px 0;
+    font-size: 1.5em; /* Larger font size for the description */
+}
+
+/* Header Styles */
+header {
+    background: url('background.jpg') no-repeat center center fixed;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background for the header */
+}
+
+/* Main Content Styles */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #4e8dda3d; /* Slightly transparent white background for the main content */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(0,0,0,0); /* Slightly transparent background for tables */
+}
+
+td {
+    padding: 10px;
+    vertical-align: top;
+}
+
+/* Link Styles */
 a {
     color: blue !important;
-    text-decoration: none; /* Optional: removes underline */
+    text-decoration: none; /* Removes underline */
 }
 
 a:hover {
-    color: darkblue !important; /* Optional: changes color on hover */
+    color: darkblue !important; /* Changes color on hover */
+}
+
+/* List Styles */
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+}
+
+li {
+    margin-bottom: 10px;
 }
