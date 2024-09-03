@@ -1,5 +1,11 @@
 build:
   docker:
     web: Dockerfile
+
+# Optional: If you need to run any commands after the build is complete
+# release:
+#   command:
+#     - python manage.py migrate
+
 run:
-  web: bundle exec puma -C config/puma.rb
+  web: gunicorn webapp.app:app --bind 0.0.0.0:$PORT
