@@ -29,4 +29,4 @@ ENV FLASK_APP=webapp/app.py
 EXPOSE 5000
 
 # Command to run the application
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "webapp.app:app"]
+# CMD ["gunicorn", "--bind", "0.0.0.0:5000", "webapp.app:app"]
