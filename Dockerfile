@@ -25,7 +25,7 @@ ENV VIRTUAL_ENV=/app/venv
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 ENV FLASK_APP=webapp/app.py
 
-# Expose the port that the application will run on
+#Expose the port that the application will run on
 # EXPOSE 5000
 
 # # Command to run the application
