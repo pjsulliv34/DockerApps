@@ -7,5 +7,5 @@ build:
 #   command:
 #     - python manage.py migrate
 
-# run:
-#   web: gunicorn webapp.app:app --bind 0.0.0.0:$PORT
+run:
+  web: gunicorn webapp.app:app --bind 0.0.0.0:5000
