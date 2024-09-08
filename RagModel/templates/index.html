@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Q&A</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ask a Question about Aliens!</h1>
+    <form action="/ask" method="POST">
+        <label for="question">Your Question:</label><br>
+        <input type="text" id="question" name="question"><br><br>
+        <input type="submit" value="Ask">
+    </form>
+    <div id="response"></div>
+
+    <h2>Context Used</h2>
+    <table id="context-table">
+        <thead>
+            <tr>
+                <th>Page</th>
+                <th>Content</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Context will be inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const response = await fetch('/ask', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+
+            const resultDiv = document.getElementById('response');
+            if (data.error) {
+                resultDiv.innerText = data.error;
+            } else {
+                resultDiv.innerHTML = `<strong>Answer:</strong><p>${data.answer}</p>`;
+                
+                // Populate context table
+                const contextTableBody = document.getElementById('context-table').getElementsByTagName('tbody')[0];
+                contextTableBody.innerHTML = ''; // Clear previous entries
+                if (data.context && Array.isArray(data.context)) {
+                    data.context.forEach(item => {
+                        const row = contextTableBody.insertRow();
+                        const pageCell = row.insertCell(0);
+                        const contentCell = row.insertCell(1);
+                        const parts = item.split(' content: ');
+                        pageCell.textContent = parts[0].split('page: ')[1]; // Extract page number
+                        contentCell.textContent = parts[1]; // Extract content
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+Flask==2.0.2
+PyPDF2==3.0.1
+openai==1.40.0
+langchain==0.2.15
+Werkzeug==2.2.2
+gunicorn==20.1.0
+python-dotenv
+langchain_openai==0.1.23
+langchain_community
+langchain_core
+pypdf
+faiss-cpu==1.7.3
