@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Q&A</title>
+</head>
+<body>
+    <h1>Ask a Question about Aliens!</h1>
+    <form action="/ask" method="POST">
+        <label for="question">Your Question:</label><br>
+        <input type="text" id="question" name="question"><br><br>
+        <input type="submit" value="Ask">
+    </form>
+    <div id="response"></div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const response = await fetch('/ask', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+            document.getElementById('response').innerText = data.answer || data.error;
+        });
+    </script>
+</body>
+</html>

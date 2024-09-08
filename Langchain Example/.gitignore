@@ -1,0 +1,22 @@
+# Ignore .env file
+.env
+
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environment
+venv/
+.venv/
+
+# Ignore system files
+.DS_Store
+.idea/
+.vscode/
+
+# Ignore log files and databases
+*.log
+*.sqlite3
+
+# Ignore any secret configuration files
+config.yaml
